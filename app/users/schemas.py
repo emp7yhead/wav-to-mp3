@@ -1,10 +1,6 @@
 from pydantic import BaseModel
 
 
-class UserIn(BaseModel):
-    name: str
-
-
 class UserInDB(BaseModel):
     id: int
     name: str

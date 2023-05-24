@@ -16,3 +16,9 @@ class User(Base):
         return f'id: {self.id} \
             name: {self.name} \
             token: {self.token}'
+
+    def to_dict(self) -> dict:
+        return {
+            field.name: getattr(self, field.name)
+            for field in self.__table__.c
+        }
