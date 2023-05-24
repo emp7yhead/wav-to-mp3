@@ -6,7 +6,7 @@ from pydantic import BaseSettings, PostgresDsn, validator
 class Settings(BaseSettings):
     """Config app."""
 
-    APP_NAME: str = 'GetQuestion'
+    APP_NAME: str = 'wav-to-mp3'
     API_VERSION: str = '/api/v1'
     POSTGRES_SERVER: str
     POSTGRES_USER: str
