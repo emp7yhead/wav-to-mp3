@@ -1,6 +1,7 @@
-from sqlalchemy.orm import Mapped, mapped_column
+from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from app.database import Base
+from app.records.models import Record
 
 
 class User(Base):
@@ -11,6 +12,9 @@ class User(Base):
     )
     name: Mapped[str]
     token: Mapped[str]
+    records: Mapped[list["Record"] | None] = relationship(
+        cascade="all, delete-orphan"
+    )
 
     def __str__(self) -> str:
         return f'id: {self.id} \
