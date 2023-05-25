@@ -1,11 +1,11 @@
 from fastapi import FastAPI
 
+from app.routers import base_router
 from app.settings import settings
-from app.users.routers import user_router
 
 app = FastAPI()
 
-app.include_router(user_router, prefix=settings.API_VERSION)
+app.include_router(base_router, prefix=settings.API_VERSION)
 
 
 @app.get('/')
