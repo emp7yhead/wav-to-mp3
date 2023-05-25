@@ -1,4 +1,4 @@
-from sqlalchemy import ForeignKey, LargeBinary
+from sqlalchemy import ForeignKey
 from app import Base
 from sqlalchemy.orm import Mapped, mapped_column
 
@@ -9,5 +9,5 @@ class Record(Base):
         autoincrement=True, primary_key=True, index=True
     )
     user_id: Mapped[int] = mapped_column(ForeignKey("users.id"))
-    audio_id: Mapped[int]
-    data: Mapped[LargeBinary]
+    _id: Mapped[int]
+    data: Mapped[bytes]
