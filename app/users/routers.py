@@ -9,10 +9,10 @@ from app.users.schemas import UserOut
 from app.users.service import create_new_user
 from app.users.utils import create_token
 
-user_router = APIRouter(prefix='/users', tags=['users'])
+users_router = APIRouter(prefix='/users', tags=['users'])
 
 
-@user_router.post(
+@users_router.post(
     '/',
     status_code=HTTPStatus.CREATED,
     response_model=UserOut,
