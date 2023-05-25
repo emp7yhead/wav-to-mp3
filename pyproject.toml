@@ -33,6 +33,7 @@ build-backend = "poetry.core.masonry.api"
 [tool.pytest.ini_options]
 norecursedirs = "__pycache__"
 addopts = "--strict-markers"
+filterwarnings = ["ignore::DeprecationWarning"]
 
 [tool.flake8]
 accept-encodings = "utf-8"
