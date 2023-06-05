@@ -2,10 +2,10 @@ from pydantic import BaseModel
 
 
 class UserIn(BaseModel):
-    id: int
+    name: str
     token: str
 
 
 class UserOut(BaseModel):
-    name: str
+    id: int
     token: str
