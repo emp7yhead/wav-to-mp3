@@ -2,10 +2,9 @@ from sqlalchemy import Select, insert, select
 from sqlalchemy.orm.session import Session
 
 from app import User
-from app.users.schemas import UserIn
 
 
-def create_new_user(session: Session, name: str, token: str) -> User | None:
+def create_new_user(session: Session, name: str, token: str) -> User:
     return session.execute(
             insert(User).returning(User), {
                 'name': name,
@@ -19,6 +18,8 @@ def get_user(session: Session, id: int) -> User | None:
     return session.scalars(stmt).one_or_none()
 
 
-def is_authenticated(db, id, token) -> bool:
-    current_user = get_user(db, id)
-    return current_user or current_user.token == token
+def is_authenticated(session: Session, id: int, token: str) -> bool:
+    current_user: User | None = get_user(session, id)
+    if not current_user:
+        return False
+    return current_user.token == token
