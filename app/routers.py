@@ -1,7 +1,6 @@
 from fastapi import APIRouter
 
 from app.records.routers import records_router
-
 from app.users.routers import users_router
 
 base_router = APIRouter()
