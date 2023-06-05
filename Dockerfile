@@ -6,7 +6,8 @@ RUN apk add --no-cache gcc \
     musl-dev \
     make \
     libffi-dev \
-    openssl-dev
+    openssl-dev \
+    ffmpeg
 
 RUN pip install --no-cache-dir poetry
 
